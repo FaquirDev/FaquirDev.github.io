@@ -335,62 +335,157 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
 
 
+
     /* ============================================================
-       11. FORMULÁRIOS — ENVIO AJAX (Contacto e Depoimento)
-       Envia os formulários via fetch, mostra feedback
-       e repõe o botão após resposta.
+       11. EMAILJS — CONFIGURAÇÃO
+       Serviço gratuito de envio de email sem servidor.
+       Passos para configurar (ver guia no README):
+         1. Criar conta em https://www.emailjs.com (grátis)
+         2. Criar um Email Service ligado ao Gmail
+         3. Criar dois Email Templates (contacto + depoimento)
+         4. Substituir os IDs abaixo pelos seus
        ============================================================ */
-    async function enviarFormulario(form, statusEl, btn) {
-        const textoOriginal = btn.innerHTML;
-        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>A enviar...';
-        btn.disabled  = true;
+    const EMAILJS_PUBLIC_KEY    = 'COLE_AQUI_A_SUA_PUBLIC_KEY';    // Account → API Keys
+    const EMAILJS_SERVICE_ID    = 'COLE_AQUI_O_SEU_SERVICE_ID';    // Email Services
+    const EMAILJS_TEMPLATE_CONT = 'COLE_AQUI_O_TEMPLATE_CONTACTO'; // Email Templates
+    const EMAILJS_TEMPLATE_DEP  = 'COLE_AQUI_O_TEMPLATE_DEPOIMENTO';
 
-        try {
-            const resposta = await fetch(form.action, {
-                method:  'POST',
-                body:    new FormData(form),
-                headers: { Accept: 'application/json' },
-            });
+    // Inicializar EmailJS com a Public Key
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
-            const dados = await resposta.json();
 
-            // Mostrar alerta de sucesso ou erro
-            statusEl.className   = `alert alert-${dados.success ? 'success' : 'danger'} rounded-3 text-center`;
-            statusEl.textContent = dados.success
-                ? '✅ Enviado com sucesso!'
-                : `❌ ${dados.message || 'Erro. Tente novamente.'}`;
-            statusEl.classList.remove('d-none');
+    /* ============================================================
+       Função utilitária — mostrar / esconder alertas
+       ============================================================ */
+    function mostrarAlerta(el, tipo, msg) {
+        if (!el) return;
+        el.className = `alert alert-${tipo} rounded-3 text-center`;
+        el.textContent = msg;
+        el.classList.remove('d-none');
+        setTimeout(() => el.classList.add('d-none'), 7000);
+    }
 
-            if (dados.success) form.reset();
-
-        } catch {
-            statusEl.className   = 'alert alert-danger rounded-3 text-center';
-            statusEl.textContent = '⚠️ Erro de ligação. Verifique a sua internet.';
-            statusEl.classList.remove('d-none');
-        } finally {
-            btn.innerHTML = textoOriginal;
+    function setBtnLoading(btn, loading, textoOriginal) {
+        if (loading) {
+            btn.dataset.orig = btn.innerHTML;
+            btn.innerHTML    = '<span class="spinner-border spinner-border-sm me-2"></span>A enviar...';
+            btn.disabled     = true;
+        } else {
+            btn.innerHTML = textoOriginal || btn.dataset.orig;
             btn.disabled  = false;
-            // Esconder alerta após 7 segundos
-            setTimeout(() => statusEl.classList.add('d-none'), 7000);
         }
     }
 
-    // Formulário de Contacto
-    const formContacto = document.getElementById('fc');
+
+    /* ============================================================
+       12. FORMULÁRIO DE CONTACTO → EmailJS
+       Envia email para faquirtembedev@gmail.com com os dados
+       preenchidos pelo visitante.
+
+       Template EmailJS sugerido (Template ID: template_contacto):
+         Para: faquirtembedev@gmail.com
+         Assunto: 📩 Nova mensagem: {{assunto}}
+         Corpo:
+           Nome: {{nome}}
+           Email: {{email}}
+           Assunto: {{assunto}}
+           Mensagem: {{mensagem}}
+       ============================================================ */
+    const formContacto   = document.getElementById('fc');
     const statusContacto = document.getElementById('cs');
-    const btnEnviar = document.getElementById('benv');
-    formContacto?.addEventListener('submit', e => {
+    const btnEnviar      = document.getElementById('benv');
+
+    formContacto?.addEventListener('submit', async e => {
         e.preventDefault();
-        enviarFormulario(formContacto, statusContacto, btnEnviar);
+
+        const nome     = document.getElementById('fc-nome').value.trim();
+        const email    = document.getElementById('fc-email').value.trim();
+        const assunto  = document.getElementById('fc-assunto')?.value.trim() || 'Sem assunto';
+        const mensagem = document.getElementById('fc-mensagem').value.trim();
+
+        if (!nome || !email || !mensagem) {
+            mostrarAlerta(statusContacto, 'warning', '⚠️ Preencha todos os campos obrigatórios.');
+            return;
+        }
+
+        setBtnLoading(btnEnviar, true);
+
+        try {
+            await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_CONT, {
+                nome,
+                email,
+                assunto,
+                mensagem,
+                data: new Date().toLocaleString('pt-MZ'),
+            });
+
+            mostrarAlerta(statusContacto, 'success', '✅ Mensagem enviada com sucesso! Responderei em breve.');
+            formContacto.reset();
+
+        } catch (err) {
+            console.error('EmailJS erro contacto:', err);
+            mostrarAlerta(statusContacto, 'danger', '❌ Erro ao enviar. Verifique a sua ligação e tente novamente.');
+        } finally {
+            setBtnLoading(btnEnviar, false);
+        }
     });
 
-    // Formulário de Depoimento
-    const formDep = document.getElementById('fd');
+
+    /* ============================================================
+       13. FORMULÁRIO DE DEPOIMENTO → EmailJS
+       Envia email de notificação com o depoimento submetido.
+
+       Template EmailJS sugerido (Template ID: template_depoimento):
+         Para: faquirtembedev@gmail.com
+         Assunto: ⭐ Novo depoimento de {{nome}}
+         Corpo:
+           Autor: {{nome}}
+           Empresa: {{empresa}}
+           Depoimento: {{mensagem}}
+           Data: {{data}}
+       ============================================================ */
+    const formDep   = document.getElementById('fd');
     const statusDep = document.getElementById('ds');
-    formDep?.addEventListener('submit', e => {
+    const btnDep    = formDep?.querySelector('button[type="submit"]');
+
+    formDep?.addEventListener('submit', async e => {
         e.preventDefault();
-        enviarFormulario(formDep, statusDep, formDep.querySelector('button[type="submit"]'));
+
+        const nome     = document.getElementById('fd-nome').value.trim();
+        const empresa  = document.getElementById('fd-empresa')?.value.trim() || '';
+        const mensagem = document.getElementById('fd-mensagem').value.trim();
+
+        if (!nome || !mensagem) {
+            mostrarAlerta(statusDep, 'warning', '⚠️ Nome e mensagem são obrigatórios.');
+            return;
+        }
+
+        if (mensagem.length < 20) {
+            mostrarAlerta(statusDep, 'warning', '⚠️ O depoimento é muito curto (mínimo 20 caracteres).');
+            return;
+        }
+
+        setBtnLoading(btnDep, true);
+
+        try {
+            await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_DEP, {
+                nome,
+                empresa: empresa || '—',
+                mensagem,
+                data: new Date().toLocaleString('pt-MZ'),
+            });
+
+            mostrarAlerta(statusDep, 'success', '✅ Depoimento enviado! Obrigado pelo seu feedback.');
+            formDep.reset();
+
+        } catch (err) {
+            console.error('EmailJS erro depoimento:', err);
+            mostrarAlerta(statusDep, 'danger', '❌ Erro ao enviar. Verifique a sua ligação e tente novamente.');
+        } finally {
+            setBtnLoading(btnDep, false);
+        }
     });
 
 
 }); // fim do DOMContentLoaded
+
