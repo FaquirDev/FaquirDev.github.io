@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ============================================================
        2. NAVBAR — SCROLL + ACTIVE LINK + FECHAR MOBILE
        ============================================================ */
-    const nb  = document.getElementById('nb');
+    const nb = document.getElementById('nb');
     const btt = document.getElementById('btt');
 
     window.addEventListener('scroll', () => {
@@ -107,13 +107,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const numero = parseInt(valorFinal);
         const sufixo = valorFinal.replace(/[0-9]/g, '');
-        let inicio    = null;
+        let inicio = null;
 
         function passo(timestamp) {
             if (!inicio) inicio = timestamp;
             const progresso = Math.min((timestamp - inicio) / duracao, 1);
-            const eased     = 1 - Math.pow(1 - progresso, 3); // ease-out cúbico
-            el.textContent  = Math.floor(eased * numero) + sufixo;
+            const eased = 1 - Math.pow(1 - progresso, 3); // ease-out cúbico
+            el.textContent = Math.floor(eased * numero) + sufixo;
             if (progresso < 1) requestAnimationFrame(passo);
         }
 
@@ -164,12 +164,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (corresponde) {
                     item.classList.remove('hd');
                     // Entrada escalonada com delay por índice
-                    item.style.opacity   = '0';
+                    item.style.opacity = '0';
                     item.style.transform = 'translateY(20px)';
                     setTimeout(() => {
                         item.style.transition = 'opacity 0.4s, transform 0.4s';
-                        item.style.opacity    = '1';
-                        item.style.transform  = 'translateY(0)';
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
                     }, i * 50);
                 } else {
                     item.classList.add('hd');
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('m-ti').textContent = ti || '';
             document.getElementById('m-de').textContent = de || '';
             document.getElementById('m-an').textContent = an ? '📅 ' + an : '';
-            document.getElementById('m-img').src         = im || '';
+            document.getElementById('m-img').src = im || '';
 
             // Gerar badges de tecnologia
             document.getElementById('m-tc').innerHTML = (tc || '')
@@ -205,11 +205,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 .join('');
 
             // Badge de estado (Concluído / Em Dev / Futuro)
-            const badgeEl  = document.getElementById('m-sb');
+            const badgeEl = document.getElementById('m-sb');
             const badgeMap = {
-                'co': { cls: 'bco', label: '<i class="fas fa-check-circle me-1"></i>Concluído'          },
-                'de': { cls: 'bde', label: '<i class="fas fa-code-branch me-1"></i>Em Desenvolvimento'  },
-                'fu': { cls: 'bfu', label: '<i class="fas fa-rocket me-1"></i>Futuro'                   },
+                'co': { cls: 'bco', label: '<i class="fas fa-check-circle me-1"></i>Concluído' },
+                'de': { cls: 'bde', label: '<i class="fas fa-code-branch me-1"></i>Em Desenvolvimento' },
+                'fu': { cls: 'bfu', label: '<i class="fas fa-rocket me-1"></i>Futuro' },
             };
             const badge = badgeMap[st] || { cls: '', label: st || '' };
             badgeEl.className = `psb msb ${badge.cls}`;
@@ -217,8 +217,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Botão de link externo (só aparece se houver link)
             const linkWrap = document.getElementById('m-lw');
-            const linkEl   = document.getElementById('m-lk');
-            const temLink  = lk && lk !== '#' && lk !== '';
+            const linkEl = document.getElementById('m-lk');
+            const temLink = lk && lk !== '#' && lk !== '';
             linkWrap.style.display = temLink ? '' : 'none';
             if (temLink) linkEl.href = lk;
         });
@@ -234,8 +234,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     heroSection?.addEventListener('mousemove', e => {
         const rect = heroSection.getBoundingClientRect();
-        const x    = ((e.clientX - rect.left)  / rect.width  * 100).toFixed(1);
-        const y    = ((e.clientY - rect.top)    / rect.height * 100).toFixed(1);
+        const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+        const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
         heroSection.style.setProperty('--mx', x + '%');
         heroSection.style.setProperty('--my', y + '%');
     });
@@ -260,12 +260,12 @@ document.addEventListener('DOMContentLoaded', () => {
        botões, teclado (← → Esc) e swipe no mobile.
        ============================================================ */
     (function iniciarLightbox() {
-        const lb   = document.getElementById('glb');
-        const lbi  = document.getElementById('lbi');
+        const lb = document.getElementById('glb');
+        const lbi = document.getElementById('lbi');
         const lbcp = document.getElementById('lbcp');
-        const lbc  = document.getElementById('lbc');
-        const lbp  = document.getElementById('lbp');
-        const lbn  = document.getElementById('lbn');
+        const lbc = document.getElementById('lbc');
+        const lbp = document.getElementById('lbp');
+        const lbn = document.getElementById('lbn');
         const lbbd = document.getElementById('lbbd');
 
         if (!lb) return;
@@ -283,8 +283,8 @@ document.addEventListener('DOMContentLoaded', () => {
             atual = i;
             const item = itens[i];
             if (!item) return;
-            lbi.src           = item.dataset.src || item.querySelector('img').src;
-            lbcp.textContent  = item.dataset.cap || '';
+            lbi.src = item.dataset.src || item.querySelector('img').src;
+            lbcp.textContent = item.dataset.cap || '';
             lb.classList.add('act');
             document.body.style.overflow = 'hidden';
         }
@@ -296,7 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function anterior() { atual = (atual - 1 + itens.length) % itens.length; abrir(atual); }
-        function proxima()  { atual = (atual + 1) % itens.length;                 abrir(atual); }
+        function proxima() { atual = (atual + 1) % itens.length; abrir(atual); }
 
         // Clicar num item da galeria
         document.querySelectorAll('.gi').forEach(gi => {
@@ -316,9 +316,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Navegação por teclado
         document.addEventListener('keydown', e => {
             if (!lb.classList.contains('act')) return;
-            if (e.key === 'Escape')      fechar();
-            if (e.key === 'ArrowLeft')   anterior();
-            if (e.key === 'ArrowRight')  proxima();
+            if (e.key === 'Escape') fechar();
+            if (e.key === 'ArrowLeft') anterior();
+            if (e.key === 'ArrowRight') proxima();
         });
 
         // Swipe no mobile
@@ -345,10 +345,10 @@ document.addEventListener('DOMContentLoaded', () => {
          3. Criar dois Email Templates (contacto + depoimento)
          4. Substituir os IDs abaixo pelos seus
        ============================================================ */
-    const EMAILJS_PUBLIC_KEY    = 'COLE_AQUI_A_SUA_PUBLIC_KEY';    // Account → API Keys
-    const EMAILJS_SERVICE_ID    = 'COLE_AQUI_O_SEU_SERVICE_ID';    // Email Services
-    const EMAILJS_TEMPLATE_CONT = 'COLE_AQUI_O_TEMPLATE_CONTACTO'; // Email Templates
-    const EMAILJS_TEMPLATE_DEP  = 'COLE_AQUI_O_TEMPLATE_DEPOIMENTO';
+    const EMAILJS_PUBLIC_KEY = 'gSgwFvZIG7l9nkACY';    // Account → API Keys
+    const EMAILJS_SERVICE_ID = 'service_4vfhs95';    // Email Services
+    const EMAILJS_TEMPLATE_CONT = 'template_qbe2wpc'; // Email Templates
+    const EMAILJS_TEMPLATE_DEP = 'template_35vip4u';
 
     // Inicializar EmailJS com a Public Key
     emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
@@ -368,11 +368,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function setBtnLoading(btn, loading, textoOriginal) {
         if (loading) {
             btn.dataset.orig = btn.innerHTML;
-            btn.innerHTML    = '<span class="spinner-border spinner-border-sm me-2"></span>A enviar...';
-            btn.disabled     = true;
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>A enviar...';
+            btn.disabled = true;
         } else {
             btn.innerHTML = textoOriginal || btn.dataset.orig;
-            btn.disabled  = false;
+            btn.disabled = false;
         }
     }
 
@@ -391,16 +391,16 @@ document.addEventListener('DOMContentLoaded', () => {
            Assunto: {{assunto}}
            Mensagem: {{mensagem}}
        ============================================================ */
-    const formContacto   = document.getElementById('fc');
+    const formContacto = document.getElementById('fc');
     const statusContacto = document.getElementById('cs');
-    const btnEnviar      = document.getElementById('benv');
+    const btnEnviar = document.getElementById('benv');
 
     formContacto?.addEventListener('submit', async e => {
         e.preventDefault();
 
-        const nome     = document.getElementById('fc-nome').value.trim();
-        const email    = document.getElementById('fc-email').value.trim();
-        const assunto  = document.getElementById('fc-assunto')?.value.trim() || 'Sem assunto';
+        const nome = document.getElementById('fc-nome').value.trim();
+        const email = document.getElementById('fc-email').value.trim();
+        const assunto = document.getElementById('fc-assunto')?.value.trim() || 'Sem assunto';
         const mensagem = document.getElementById('fc-mensagem').value.trim();
 
         if (!nome || !email || !mensagem) {
@@ -444,15 +444,15 @@ document.addEventListener('DOMContentLoaded', () => {
            Depoimento: {{mensagem}}
            Data: {{data}}
        ============================================================ */
-    const formDep   = document.getElementById('fd');
+    const formDep = document.getElementById('fd');
     const statusDep = document.getElementById('ds');
-    const btnDep    = formDep?.querySelector('button[type="submit"]');
+    const btnDep = formDep?.querySelector('button[type="submit"]');
 
     formDep?.addEventListener('submit', async e => {
         e.preventDefault();
 
-        const nome     = document.getElementById('fd-nome').value.trim();
-        const empresa  = document.getElementById('fd-empresa')?.value.trim() || '';
+        const nome = document.getElementById('fd-nome').value.trim();
+        const empresa = document.getElementById('fd-empresa')?.value.trim() || '';
         const mensagem = document.getElementById('fd-mensagem').value.trim();
 
         if (!nome || !mensagem) {
