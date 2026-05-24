@@ -343,15 +343,21 @@ document.addEventListener('DOMContentLoaded', () => {
          1. Criar conta em https://www.emailjs.com (grátis)
          2. Criar um Email Service ligado ao Gmail
          3. Criar dois Email Templates (contacto + depoimento)
-         4. Substituir os IDs abaixo pelos seus
+         4. Substituir os IDs abaixo
        ============================================================ */
     const EMAILJS_PUBLIC_KEY = 'gSgwFvZIG7l9nkACY';    // Account → API Keys
     const EMAILJS_SERVICE_ID = 'service_4vfhs95';    // Email Services
     const EMAILJS_TEMPLATE_CONT = 'template_qbe2wpc'; // Email Templates
     const EMAILJS_TEMPLATE_DEP = 'template_35vip4u';
 
+    const emailjsDisponivel = window.emailjs && typeof emailjs.init === 'function';
+
     // Inicializar EmailJS com a Public Key
-    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    if (emailjsDisponivel) {
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+    } else {
+        console.warn('EmailJS não carregado. Verifique a inclusão de https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js antes de meuScript.js.');
+    }
 
 
     /* ============================================================
@@ -366,6 +372,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setBtnLoading(btn, loading, textoOriginal) {
+        if (!btn) return;
         if (loading) {
             btn.dataset.orig = btn.innerHTML;
             btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>A enviar...';
@@ -374,6 +381,14 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.innerHTML = textoOriginal || btn.dataset.orig;
             btn.disabled = false;
         }
+    }
+
+    function abrirMailtoFallback({ nome, email, assunto, mensagem }) {
+        const subject = encodeURIComponent(assunto || 'Contacto pelo site');
+        const body = encodeURIComponent(
+            `Nome: ${nome}\nEmail: ${email}\nAssunto: ${assunto || 'Sem assunto'}\n\nMensagem:\n${mensagem}`
+        );
+        window.location.href = `mailto:faquirtembedev@gmail.com?subject=${subject}&body=${body}`;
     }
 
 
@@ -397,6 +412,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     formContacto?.addEventListener('submit', async e => {
         e.preventDefault();
+
+        if (!emailjsDisponivel || typeof emailjs.send !== 'function') {
+            console.error('EmailJS não disponível no momento.');
+            mostrarAlerta(statusContacto, 'danger', '❌ Serviço de envio indisponível. Atualize a página e tente novamente.');
+            return;
+        }
 
         const nome = document.getElementById('fc-nome').value.trim();
         const email = document.getElementById('fc-email').value.trim();
@@ -424,7 +445,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } catch (err) {
             console.error('EmailJS erro contacto:', err);
-            mostrarAlerta(statusContacto, 'danger', '❌ Erro ao enviar. Verifique a sua ligação e tente novamente.');
+
+            if (!navigator.onLine || (err && err.status === 0)) {
+                mostrarAlerta(statusContacto, 'danger', '❌ Sem ligação. Por favor verifique a sua Internet e tente novamente.');
+            } else {
+                mostrarAlerta(statusContacto, 'danger', '❌ Erro ao enviar. Verifique a sua ligação e tente novamente.');
+            }
         } finally {
             setBtnLoading(btnEnviar, false);
         }
@@ -437,7 +463,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
        Template EmailJS sugerido (Template ID: template_depoimento):
          Para: faquirtembedev@gmail.com
-         Assunto: ⭐ Novo depoimento de {{nome}}
+         Assunto: Novo depoimento de {{nome}}
          Corpo:
            Autor: {{nome}}
            Empresa: {{empresa}}
