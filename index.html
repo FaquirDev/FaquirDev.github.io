@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="pt-mz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Faquir Manuel Tembe . fDev">
+    <title>Faquir Tembe | Full-Stack Developer</title>
+
+    <!-- Bootstrap 5.3.8 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6.5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Google Fonts: Syne + Outfit -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="meuEstilo.css">
+</head>
+
+<body>
+
+    <!-- Cursor personalizado -->
+    <div id="cr"></div>
+    <div id="cd"></div>
+
+
+    <!-- ================================================================
+     NAVBAR
+     ================================================================ -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="nb">
+        <div class="container">
+            <a class="navbar-brand" href="#"><span class="bt">fDev</span></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nvc"
+                aria-controls="nvc" aria-expanded="false" aria-label="Menu">
+                <i class="fas fa-bars" style="color:var(--t1)"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="nvc">
+                <ul class="navbar-nav gap-1">
+                    <li class="nav-item"><a class="nav-link np" href="#home">Início</a></li>
+                    <li class="nav-item"><a class="nav-link np" href="#sobre">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link np" href="#servicos">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link np" href="#trajetoria">Trajetória</a></li>
+                    <li class="nav-item"><a class="nav-link np" href="#projetos">Projectos</a></li>
+                    <li class="nav-item"><a class="nav-link np" href="#galeria">Galeria</a></li>
+                    <li class="nav-item"><a class="nav-link np" href="#depoimentos">Depoimentos</a></li>
+                    <li class="nav-item"><a class="nav-link np" href="#contato">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="d-none d-lg-flex gap-2 align-items-center">
+                <a class="sn-a" href="tel:+258861400606" title="Ligar agora"
+                    style="background:rgba(99,102,241,.15);border-color:rgba(99,102,241,.4);color:var(--c1)"><i
+                        class="fas fa-phone"></i></a>
+                <a class="sn-a" href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a class="sn-a" href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a class="sn-a" href="https://wa.me/258861400606" target="_blank" title="WhatsApp"><i
+                        class="fab fa-whatsapp"></i></a>
+                <a class="sn-a" href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- ================================================================
+     HERO
+     ================================================================ -->
+    <header id="home" class="hero d-flex align-items-center">
+        <div class="hmesh"></div>
+        <div class="hgrid"></div>
+        <div class="container position-relative" style="z-index:1">
+            <div class="row align-items-center gy-5">
+
+                <!-- Texto -->
+                <div class="col-lg-7 order-2 order-lg-1">
+                    <div class="h-avail fu mb-2">
+                        <span class="h-avail-dot"></span>
+                        Disponível para novos projectos
+                    </div>
+                    <p class="h-tag mb-3 fu">Desenvolvedor Full-Stack &nbsp;·&nbsp; Moçambique</p>
+                    <h1 class="h-ttl fu d1">
+                        Faquir<br>
+                        Manuel<br>
+                        <span class="gw" data-text="Tembe">Tembe</span>
+                    </h1>
+                    <p class="h-sub mt-4 mb-5 fu d2">
+                        Transformo ideias em sistemas digitais elegantes e eficientes,
+                        com PHP, MySQL, Bootstrap e muito café.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 fu d3">
+                        <a href="./CcCV.pdf" download class="btn btn-pc px-5 py-3">
+                            <i class="fas fa-download me-2"></i>Baixar CV
+                        </a>
+                        <a href="#projetos" class="btn btn-oc px-5 py-3">Ver Projectos</a>
+                    </div>
+                </div>
+
+                <!-- Imagem -->
+                <div class="col-lg-5 order-1 order-lg-2 text-center fu d2">
+                    <div class="hiw" style="display:inline-block; position:relative;">
+                        <!-- Chips — distribuídos em órbita ao redor da foto -->
+                        <div class="hchip cp1"><i class="fab fa-php"></i> PHP 8</div>
+                        <div class="hchip cp2"><i class="fas fa-database"></i> MySQL</div>
+                        <div class="hchip cp3"><i class="fab fa-bootstrap"></i> Bootstrap</div>
+                        <div class="hchip cp4"><i class="fab fa-js"></i> JavaScript</div>
+                        <div class="hchip cp5"><i class="fab fa-css3-alt"></i> CSS3</div>
+                        <div class="hchip cp6"><i class="fab fa-java"></i> Java</div>
+                        <div class="hchip cp7"><i class="fab fa-react"></i> React</div>
+                        <!-- Anel giratório -->
+                        <div class="hring"></div>
+                        <!-- Foto com efeito transparência/fade nas bordas -->
+                        <img src="./imgs/me.jpg" alt="Faquir Tembe" class="h-img">
+                        <!-- Badge experiência -->
+                        <div class="h-badge">
+                            <span class="bn">2+</span>
+                            <span class="bl">Anos de<br>Experiência</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <a href="#sobre" class="hscroll">
+            <div class="sline"></div>
+        </a>
+    </header>
+
+
+    <!-- ================================================================
+     SOBRE
+     ================================================================ -->
+    <section id="sobre" class="sp sa">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+
+                <!-- Estatísticas -->
+                <div class="col-lg-5">
+                    <div class="sg">
+                        <div class="sb text-center rv">
+                            <h3 class="snum">2+</h3>
+                            <p class="slbl">Anos de Experiência</p>
+                        </div>
+                        <div class="sb text-center rv">
+                            <h3 class="snum">5+</h3>
+                            <p class="slbl">Projectos Concluídos</p>
+                        </div>
+                        <div class="sb text-center rv">
+                            <h3 class="snum">4+</h3>
+                            <p class="slbl">Clientes Satisfeitos</p>
+                        </div>
+                        <div class="sb text-center rv">
+                            <h3 class="snum">∞</h3>
+                            <p class="slbl">Linhas de Código</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Texto + tecnologias -->
+                <div class="col-lg-6 offset-lg-1">
+                    <span class="s-tag">Sobre Mim</span>
+                    <h2 class="s-ttl">Desenvolvedor apaixonado por <em>soluções reais</em></h2>
+                    <p class="t2c mt-4">
+                        Sou Faquir Manuel Tembe, Desenvolvedor Full-Stack focado em criar sistemas
+                        eficientes e esteticamente agradáveis. Com experiência em HTML, CSS,
+                        JavaScript, PHP e MySQL, transformo ideias complexas em soluções digitais
+                        simplificadas.
+                    </p>
+                    <p class="t2c mt-3">
+                        Com base em Xai-Xai, Moçambique, actuo em projectos locais e remotos,
+                        sempre com atenção à qualidade, usabilidade e performance.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 mt-5">
+                        <div class="tpill tp-js rv"><i class="fab fa-js"></i> JavaScript</div>
+                        <div class="tpill tp-html rv"><i class="fab fa-html5"></i> HTML</div>
+                        <div class="tpill tp-css rv"><i class="fab fa-css3-alt"></i> CSS</div>
+                        <div class="tpill tp-php rv"><i class="fab fa-php"></i> PHP</div>
+                        <div class="tpill tp-my rv"><i class="fas fa-database"></i> MySQL</div>
+                        <div class="tpill tp-bs rv"><i class="fab fa-bootstrap"></i> Bootstrap</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <hr class="gdiv">
+
+
+    <!-- ================================================================
+     SERVIÇOS
+     ================================================================ -->
+    <section id="servicos" class="sp">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="s-tag">O que faço</span>
+                <h2 class="s-ttl">Meus Serviços</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="svc rv">
+                        <div class="svc-n">01</div>
+                        <div class="svc-ic"><i class="fas fa-code"></i></div>
+                        <h4>Desenvolvimento Web</h4>
+                        <p class="t2c">Criação de sites modernos, sistemas de gestão e aplicações web com PHP, MySQL e
+                            Bootstrap 5. Do layout ao banco de dados.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="svc rv">
+                        <div class="svc-n">02</div>
+                        <div class="svc-ic"><i class="fas fa-laptop"></i></div>
+                        <h4>Montagem e Reparação de Computadores (laptops e desktops)</h4>
+                        <p class="t2c">Instalação, manutenção e configuração de hardware e software com suporte a
+                            sistemas robustos em Windows (desde XP até 11), Linux e macOS, para gestão eficiente de
+                            dados pessoais e empresariais.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="svc rv">
+                        <div class="svc-n">03</div>
+                        <div class="svc-ic"><i class="fas fa-database"></i></div>
+                        <h4>Gestão de Dados</h4>
+                        <p class="t2c">Modelagem, recuperação e optimização de bases de dados MySQL via PhpMyAdmin.
+                            Backups, migrações e sincronização.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="svc rv">
+                        <div class="svc-n">04</div>
+                        <div class="svc-ic"><i class="fas fa-shield-halved"></i></div>
+                        <h4>Sistemas com ACL</h4>
+                        <p class="t2c">Controlo de acesso por funções (ACL/RBAC) com PHP e MySQL para sistemas
+                            administrativos seguros e auditáveis.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="svc rv">
+                        <div class="svc-n">05</div>
+                        <div class="svc-ic"><i class="fas fa-palette"></i></div>
+                        <h4>UI/UX Design</h4>
+                        <p class="t2c">Interfaces intuitivas e esteticamente atraentes, priorizando a experiência do
+                            utilizador com Bootstrap e CSS personalizado.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="svc rv">
+                        <div class="svc-n">06</div>
+                        <div class="svc-ic"><i class="fas fa-server"></i></div>
+                        <h4>Configuração de Servidores</h4>
+                        <p class="t2c">Instalação e configuração de ambientes LAMP/WAMP, PhpMyAdmin, deploy de
+                            aplicações PHP em servidores locais e remotos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr class="gdiv">
+
+
+    <!-- ================================================================
+     TRAJETÓRIA
+     ================================================================ -->
+    <section id="trajetoria" class="sp sa">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="s-tag">Minha História</span>
+                <h2 class="s-ttl">Trajetória <em>Profissional</em></h2>
+            </div>
+            <div class="tln">
+                <div class="tli">
+                    <div class="tld"></div>
+                    <div class="tlc rv"><span class="tldt">2023 – Presente</span>
+                        <h4>Governo do Distrito de Mandlakazi</h4>
+                        <p class="t2c mb-0">Mentor e Proporcionador das TIC's a nível do governo distrital.</p> <br>
+                        <p class="t2c mb-0">Desenvolvedor do site do governo distrital.</p> <br>
+                        <p class="t2c mb-0">Desenvolvedor do Sistema de Gestão Administrativa com controlo de
+                            acesso (ACL), construído com PHP, MySQL e Bootstrap.</p>
+                    </div>
+                </div>
+                <div class="tli">
+                    <div class="tld"></div>
+                    <div class="tlc rv"><span class="tldt">2025-2026</span>
+                        <h4>Projecto_HotelMazino </h4>
+                        <p class="t2c mb-0">Liderança técnica do sistema de controle de Stock. Responsável pela
+                            criação, interface UX/UI, integração PHP/MySQL e painel de controle completo.</p>
+                    </div>
+                </div>
+                <div class="tli">
+                    <div class="tld"></div>
+                    <div class="tlc rv"><span class="tldt">Desde 2015</span>
+                        <h4>Técnico de HardWare e SoftWare</h4>
+                        <p class="t2c mb-0">Técnico em reparação de computadores (laptops e desktops).</p> <br>
+                        <p class="t2c mb-0">Instalação, manutenção e configuração de hardware e software com suporte a
+                            sistemas robustos
+                            em Windows (desde XP até 11), Linux e macOS, para gestão eficiente de dados pessoais e
+                            empresariais.</p>
+
+
+
+                    </div>
+                </div>
+                <div class="tli">
+                    <div class="tld"></div>
+                    <div class="tlc rv"><span class="tldt">2021 – 2022</span>
+                        <h4>Início da Jornada</h4>
+                        <p class="t2c mb-0">Primeiros projectos freelance em HTML, CSS e JavaScript. Desenvolvimento do
+                            sistema de Gestão Académica em JavaFX com MySQL para controlo escolar completo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr class="gdiv">
+
+
+    <!-- ================================================================
+     PROJECTOS
+     ================================================================ -->
+    <section id="projetos" class="sp">
+        <div class="container">
+
+            <!-- Cabeçalho + contadores -->
+            <div class="row align-items-end mb-5">
+                <div class="col-lg-7">
+                    <span class="s-tag">Portfolio</span>
+                    <h2 class="s-ttl">Todos os <em>Projectos</em></h2>
+                    <p class="t2c mt-3">Concluídos, em desenvolvimento e futuros. Clique para ver detalhes e aceder ao
+                        link.</p>
+                </div>
+                <div class="col-lg-5 text-lg-end mt-3 mt-lg-0">
+                    <div class="pct">
+                        <div class="pci"><span class="pcn" id="cnt-co">0</span><span class="pcl">Concluídos</span></div>
+                        <div class="pci"><span class="pcn" id="cnt-de">0</span><span class="pcl">Em Curso</span></div>
+                        <div class="pci"><span class="pcn" id="cnt-fu">0</span><span class="pcl">Futuros</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filtros -->
+            <div class="d-flex flex-wrap gap-2 mb-5">
+                <button class="pfb active" data-f="todos"><i class="fas fa-border-all me-2"></i>Todos</button>
+                <button class="pfb" data-f="co"><i class="fas fa-check-circle me-2"></i>Concluídos</button>
+                <button class="pfb" data-f="de"><i class="fas fa-code-branch me-2"></i>Em Desenvolvimento</button>
+                <button class="pfb" data-f="fu"><i class="fas fa-rocket me-2"></i>Futuros</button>
+            </div>
+
+            <!-- Grid -->
+            <div class="row g-4" id="pgrid">
+
+                <!-- P1 -->
+                <div class="col-sm-6 col-lg-4 pi" data-s="co">
+                    <div class="pc h-100" data-bs-toggle="modal" data-bs-target="#mp"
+                        data-ti="Gestão de Stock — HotelMazino" data-st="co"
+                        data-de="Sistema completo de gestão de stock para o Hotel Mazino. Controlo de entradas e saídas de produtos, alertas de stock mínimo, relatórios mensais e painel de gestão para administradores."
+                        data-tc="PHP,MySQL,Bootstrap 5,JavaScript" data-lk="https://hotelmazino.exemplo.co.mz/stock"
+                        data-im="https://placehold.co/700x420/0d0d1a/6366f1?text=Stock+HotelMazino" data-an="2024">
+                        <div class="piw"><img src="https://placehold.co/600x360/0d0d1a/6366f1?text=Stock+HotelMazino"
+                                alt="">
+                            <div class="pov"><span class="btn btn-sm btn-light rounded-pill px-4">Ver Detalhes</span>
+                            </div><span class="psb bco"><i class="fas fa-check-circle me-1"></i>Concluído</span>
+                        </div>
+                        <div class="pb">
+                            <h5>Gestão de Stock — HotelMazino</h5>
+                            <p class="t2c small mb-3">Controlo de inventário, alertas de stock mínimo e relatórios
+                                mensais.</p>
+                            <div class="d-flex flex-wrap gap-2 mb-3"><span class="tbg">PHP</span><span
+                                    class="tbg">MySQL</span><span class="tbg">Bootstrap</span></div>
+                            <div class="plr"><i class="fas fa-external-link-alt me-1"></i><span
+                                    class="small">hotelmazino.exemplo.co.mz</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- P2 -->
+                <div class="col-sm-6 col-lg-4 pi" data-s="co">
+                    <div class="pc h-100" data-bs-toggle="modal" data-bs-target="#mp"
+                        data-ti="Sistema de Reservas — HotelMazino" data-st="co"
+                        data-de="Sistema completo de reservas hoteleiras com painel admin, controlo de quartos, check-in/check-out, pagamentos e relatórios financeiros completos."
+                        data-tc="PHP,MySQL,Bootstrap 5,AJAX,JavaScript" data-lk="https://hotelmazino.exemplo.co.mz"
+                        data-im="https://placehold.co/700x420/0d0d1a/8b5cf6?text=Reservas+Hotel" data-an="2023">
+                        <div class="piw"><img src="https://placehold.co/600x360/0d0d1a/8b5cf6?text=Reservas+Hotel"
+                                alt="">
+                            <div class="pov"><span class="btn btn-sm btn-light rounded-pill px-4">Ver Detalhes</span>
+                            </div><span class="psb bco"><i class="fas fa-check-circle me-1"></i>Concluído</span>
+                        </div>
+                        <div class="pb">
+                            <h5>Sistema de Reservas — HotelMazino</h5>
+                            <p class="t2c small mb-3">Reservas, check-in/out, pagamentos e painel administrativo.</p>
+                            <div class="d-flex flex-wrap gap-2 mb-3"><span class="tbg">PHP</span><span
+                                    class="tbg">MySQL</span><span class="tbg">AJAX</span></div>
+                            <div class="plr"><i class="fas fa-external-link-alt me-1"></i><span
+                                    class="small">hotelmazino.exemplo.co.mz</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- P3 -->
+                <div class="col-sm-6 col-lg-4 pi" data-s="co">
+                    <div class="pc h-100" data-bs-toggle="modal" data-bs-target="#mp" data-ti="Sistema Gov. Mandlakazi"
+                        data-st="co"
+                        data-de="Sistema de Gestão Administrativa para o Governo Distrital de Mandlakazi. ACL/RBAC, logs de auditoria, gestão de documentos e relatórios institucionais."
+                        data-tc="PHP,MySQL,Bootstrap,ACL/RBAC,JavaScript" data-lk=""
+                        data-im="https://placehold.co/700x420/0d0d1a/06b6d4?text=Gov+Mandlakazi" data-an="2024">
+                        <div class="piw"><img src="https://placehold.co/600x360/0d0d1a/06b6d4?text=Gov+Mandlakazi"
+                                alt="">
+                            <div class="pov"><span class="btn btn-sm btn-light rounded-pill px-4">Ver Detalhes</span>
+                            </div><span class="psb bco"><i class="fas fa-check-circle me-1"></i>Concluído</span>
+                        </div>
+                        <div class="pb">
+                            <h5>Sistema Gov. Mandlakazi</h5>
+                            <p class="t2c small mb-3">Gestão administrativa, ACL e relatórios para o governo distrital.
+                            </p>
+                            <div class="d-flex flex-wrap gap-2 mb-3"><span class="tbg">PHP</span><span
+                                    class="tbg">ACL/RBAC</span><span class="tbg">MySQL</span></div>
+                            <div class="plr t2c"><i class="fas fa-lock me-1"></i><span class="small">Acesso
+                                    Institucional Privado</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- P4 -->
+                <div class="col-sm-6 col-lg-4 pi" data-s="co">
+                    <div class="pc h-100" data-bs-toggle="modal" data-bs-target="#mp"
+                        data-ti="Sistema de Gestão Académica" data-st="co"
+                        data-de="Aplicação Desktop em JavaFX para controlo escolar completo: matrículas, lançamento de notas, gestão de turmas e relatórios académicos imprimíveis."
+                        data-tc="JavaFX,Java,MySQL,JasperReports" data-lk=""
+                        data-im="https://placehold.co/700x420/0d0d1a/3b82f6?text=Gestão+Académica" data-an="2022">
+                        <div class="piw"><img src="https://placehold.co/600x360/0d0d1a/3b82f6?text=Gestão+Académica"
+                                alt="">
+                            <div class="pov"><span class="btn btn-sm btn-light rounded-pill px-4">Ver Detalhes</span>
+                            </div><span class="psb bco"><i class="fas fa-check-circle me-1"></i>Concluído</span>
+                        </div>
+                        <div class="pb">
+                            <h5>Sistema de Gestão Académica</h5>
+                            <p class="t2c small mb-3">Desktop JavaFX: matrículas, notas, turmas e relatórios escolares.
+                            </p>
+                            <div class="d-flex flex-wrap gap-2 mb-3"><span class="tbg">JavaFX</span><span
+                                    class="tbg">Java</span><span class="tbg">MySQL</span></div>
+                            <div class="plr t2c"><i class="fas fa-desktop me-1"></i><span class="small">Aplicação
+                                    Desktop</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- P5 -->
+                <div class="col-sm-6 col-lg-4 pi" data-s="co">
+                    <div class="pc h-100" data-bs-toggle="modal" data-bs-target="#mp"
+                        data-ti="Recovery DB — Luping Supermercado" data-st="co"
+                        data-de="Recuperação total da base de dados MySQL corrompida. Extracção de dados, modelagem normalizada, migração, backups automáticos e optimização de queries críticas."
+                        data-tc="MySQL,PhpMyAdmin,Shell Script,PHP" data-lk=""
+                        data-im="https://placehold.co/700x420/0d0d1a/6366f1?text=Luping+DB" data-an="2023">
+                        <div class="piw"><img src="https://placehold.co/600x360/0d0d1a/6366f1?text=Luping+DB+Recovery"
+                                alt="">
+                            <div class="pov"><span class="btn btn-sm btn-light rounded-pill px-4">Ver Detalhes</span>
+                            </div><span class="psb bco"><i class="fas fa-check-circle me-1"></i>Concluído</span>
+                        </div>
+                        <div class="pb">
+                            <h5>Recovery DB — Luping Supermercado</h5>
+                            <p class="t2c small mb-3">Recuperação, migração e optimização da base de dados MySQL.</p>
+                            <div class="d-flex flex-wrap gap-2 mb-3"><span class="tbg">MySQL</span><span
+                                    class="tbg">PhpMyAdmin</span><span class="tbg">PHP</span></div>
+                            <div class="plr t2c"><i class="fas fa-database me-1"></i><span class="small">Projecto de
+                                    Base de Dados</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- P6 Em Dev -->
+                <div class="col-sm-6 col-lg-4 pi" data-s="de">
+                    <div class="pc h-100" data-bs-toggle="modal" data-bs-target="#mp" data-ti="Portfólio Pessoal v2"
+                        data-st="de"
+                        data-de="Redesign completo com Bootstrap 5.3, PHP, MySQL e PhpMyAdmin. Painel de administração para gerir projectos, depoimentos e mensagens."
+                        data-tc="Bootstrap 5.3,PHP,MySQL,PhpMyAdmin,JavaScript" data-lk="#home"
+                        data-im="https://placehold.co/700x420/0d0d1a/8b5cf6?text=Portfolio+v2" data-an="2025">
+                        <div class="piw"><img src="https://placehold.co/600x360/0d0d1a/8b5cf6?text=Portfolio+v2" alt="">
+                            <div class="pov"><span class="btn btn-sm btn-light rounded-pill px-4">Ver Detalhes</span>
+                            </div><span class="psb bde"><i class="fas fa-code-branch me-1"></i>Em Desenvolvimento</span>
+                        </div>
+                        <div class="pb">
+                            <div class="ppb">
+                                <div class="progress-bar" style="width:85%"></div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3"><small class="t2c">Progresso</small><small
+                                    class="tac fw-bold">85%</small></div>
+                            <h5>Portfólio Pessoal v2</h5>
+                            <p class="t2c small mb-3">Redesign com Bootstrap 5.3, PHP, MySQL e painel de admin.</p>
+                            <div class="d-flex flex-wrap gap-2"><span class="tbg">Bootstrap 5</span><span
+                                    class="tbg">PHP</span><span class="tbg">MySQL</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- P7 Futuro -->
+                <div class="col-sm-6 col-lg-4 pi" data-s="fu">
+                    <div class="pc h-100" data-bs-toggle="modal" data-bs-target="#mp"
+                        data-ti="App de Delivery — Xai-Xai" data-st="fu"
+                        data-de="Plataforma de delivery para Xai-Xai com rastreamento em tempo real, pagamentos M-Pesa, painel para restaurantes e app para estafetas."
+                        data-tc="React,Node.js,MySQL,M-Pesa API,Bootstrap" data-lk=""
+                        data-im="https://placehold.co/700x420/0d0d1a/444?text=Em+Breve" data-an="2026">
+                        <div class="piw pfw"><img src="https://placehold.co/600x360/0d0d1a/333?text=Em+Breve" alt="">
+                            <div class="pov"><span class="btn btn-sm btn-light rounded-pill px-4">Ver Detalhes</span>
+                            </div><span class="psb bfu"><i class="fas fa-rocket me-1"></i>Futuro</span>
+                        </div>
+                        <div class="pb">
+                            <h5>App de Delivery — Xai-Xai</h5>
+                            <p class="t2c small mb-3">Delivery com M-Pesa, rastreamento em tempo real e painel para
+                                restaurantes.</p>
+                            <div class="d-flex flex-wrap gap-2 mb-3"><span class="tbg">React</span><span
+                                    class="tbg">M-Pesa API</span><span class="tbg">Node.js</span></div>
+                            <div class="plr t2c"><i class="fas fa-calendar-alt me-1"></i><span class="small">Previsto:
+                                    2026</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- P8 Futuro -->
+                <div class="col-sm-6 col-lg-4 pi" data-s="fu">
+                    <div class="pc h-100" data-bs-toggle="modal" data-bs-target="#mp"
+                        data-ti="ERP para PME Moçambicanas" data-st="fu"
+                        data-de="Sistema ERP completo para PME: vendas, compras, stock, RH, contabilidade e relatórios fiscais alinhados com a legislação moçambicana."
+                        data-tc="PHP,MySQL,Bootstrap 5,JavaScript,AJAX,PhpMyAdmin" data-lk=""
+                        data-im="https://placehold.co/700x420/0d0d1a/444?text=Em+Breve" data-an="2026">
+                        <div class="piw pfw"><img src="https://placehold.co/600x360/0d0d1a/333?text=Em+Breve" alt="">
+                            <div class="pov"><span class="btn btn-sm btn-light rounded-pill px-4">Ver Detalhes</span>
+                            </div><span class="psb bfu"><i class="fas fa-rocket me-1"></i>Futuro</span>
+                        </div>
+                        <div class="pb">
+                            <h5>ERP para PME Moçambicanas</h5>
+                            <p class="t2c small mb-3">Vendas, stock, RH e contabilidade para pequenas e médias empresas.
+                            </p>
+                            <div class="d-flex flex-wrap gap-2 mb-3"><span class="tbg">PHP</span><span
+                                    class="tbg">MySQL</span><span class="tbg">Bootstrap 5</span></div>
+                            <div class="plr t2c"><i class="fas fa-calendar-alt me-1"></i><span class="small">Previsto:
+                                    2026</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de detalhes do projecto -->
+    <div class="modal fade" id="mp" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content md">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="mpiw"><img id="m-img" src="" alt="" class="img-fluid w-100"><span class="psb msb"
+                            id="m-sb"></span></div>
+                    <div class="p-4 p-md-5">
+                        <h3 class="fw-bold mb-1" id="m-ti"></h3>
+                        <p class="t2c small mb-4" id="m-an"></p>
+                        <p class="mb-4" id="m-de" style="line-height:1.8; color:var(--t2)"></p>
+                        <h6 style="font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; color:var(--t3)"
+                            class="mb-3">Tecnologias</h6>
+                        <div class="d-flex flex-wrap gap-2 mb-5" id="m-tc"></div>
+                        <div id="m-lw">
+                            <a id="m-lk" href="#" target="_blank" rel="noopener" class="btn btn-pc px-5 py-3">
+                                <i class="fas fa-external-link-alt me-2"></i>Aceder ao Projecto
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="gdiv">
+
+
+    <!-- ================================================================
+     GALERIA FOTOGRÁFICA
+     ================================================================ -->
+    <section id="galeria" class="gals">
+        <div class="gah">
+            <div>
+                <span class="s-tag">Momentos</span>
+                <h2 class="s-ttl">Galeria <em>Fotográfica</em></h2>
+                <p class="t2c mt-2">Uma janela para os bastidores, os projectos e os momentos que definem a jornada.</p>
+            </div>
+            <div class="gahl"></div>
+        </div>
+
+        <!-- Faixa 1 — esquerda -->
+        <div class="gsw">
+            <div class="gstr sl" id="gs1">
+                <div class="gi" data-cap="Sessão de código — Gov. Mandlakazi" data-src="./imgs/galeria/foto1.jpg"><img
+                        src="https://placehold.co/520x340/0d0d1a/6366f1?text=📸+Foto+1" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Sessão de código — Gov. Mandlakazi</span>
+                    </div>
+                </div>
+                <div class="gi" data-cap="Reunião de projecto — HotelMazino" data-src="./imgs/galeria/foto2.jpg"><img
+                        src="https://placehold.co/400x340/0d0d1a/8b5cf6?text=📸+Foto+2" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Reunião — HotelMazino</span></div>
+                </div>
+                <div class="gi gi--w" data-cap="Setup de trabalho — Home Office" data-src="./imgs/galeria/foto3.jpg">
+                    <img src="https://placehold.co/660x340/0d0d1a/06b6d4?text=📸+Foto+3" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Setup de trabalho — Home Office</span></div>
+                </div>
+                <div class="gi" data-cap="Apresentação do sistema académico" data-src="./imgs/galeria/foto4.jpg"><img
+                        src="https://placehold.co/460x340/0d0d1a/3b82f6?text=📸+Foto+4" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Apresentação do sistema académico</span>
+                    </div>
+                </div>
+                <div class="gi" data-cap="Workshop de tecnologia — Xai-Xai" data-src="./imgs/galeria/foto5.jpg"><img
+                        src="https://placehold.co/480x340/0d0d1a/6366f1?text=📸+Foto+5" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Workshop de tecnologia — Xai-Xai</span>
+                    </div>
+                </div>
+                <div class="gi gi--w" data-cap="Entrega do projecto Luping" data-src="./imgs/galeria/foto6.jpg"><img
+                        src="https://placehold.co/620x340/0d0d1a/8b5cf6?text=📸+Foto+6" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Entrega do projecto — Luping</span></div>
+                </div>
+                <div class="gi" data-cap="Formação em JavaFX" data-src="./imgs/galeria/foto7.jpg"><img
+                        src="https://placehold.co/440x340/0d0d1a/06b6d4?text=📸+Foto+7" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Formação em JavaFX</span></div>
+                </div>
+                <!-- duplicados para loop -->
+                <div class="gi" data-cap="Sessão de código — Gov. Mandlakazi" data-src="./imgs/galeria/foto1.jpg"><img
+                        src="https://placehold.co/520x340/0d0d1a/6366f1?text=📸+Foto+1" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Sessão de código</span></div>
+                </div>
+                <div class="gi" data-cap="Reunião de projecto — HotelMazino" data-src="./imgs/galeria/foto2.jpg"><img
+                        src="https://placehold.co/400x340/0d0d1a/8b5cf6?text=📸+Foto+2" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Reunião — HotelMazino</span></div>
+                </div>
+                <div class="gi gi--w" data-cap="Setup de trabalho" data-src="./imgs/galeria/foto3.jpg"><img
+                        src="https://placehold.co/660x340/0d0d1a/06b6d4?text=📸+Foto+3" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Home Office Setup</span></div>
+                </div>
+                <div class="gi" data-cap="Apresentação" data-src="./imgs/galeria/foto4.jpg"><img
+                        src="https://placehold.co/460x340/0d0d1a/3b82f6?text=📸+Foto+4" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Apresentação</span></div>
+                </div>
+                <div class="gi" data-cap="Workshop" data-src="./imgs/galeria/foto5.jpg"><img
+                        src="https://placehold.co/480x340/0d0d1a/6366f1?text=📸+Foto+5" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Workshop Xai-Xai</span></div>
+                </div>
+                <div class="gi gi--w" data-cap="Entrega" data-src="./imgs/galeria/foto6.jpg"><img
+                        src="https://placehold.co/620x340/0d0d1a/8b5cf6?text=📸+Foto+6" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Entrega — Luping</span></div>
+                </div>
+                <div class="gi" data-cap="Formação" data-src="./imgs/galeria/foto7.jpg"><img
+                        src="https://placehold.co/440x340/0d0d1a/06b6d4?text=📸+Foto+7" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Formação JavaFX</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Faixa 2 — direita -->
+        <div class="gsw">
+            <div class="gstr sr" id="gs2">
+                <div class="gi gi--w" data-cap="Visita técnica — Mandlakazi" data-src="./imgs/galeria/foto8.jpg"><img
+                        src="https://placehold.co/640x300/0d0d1a/8b5cf6?text=📸+Foto+8" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Visita técnica — Mandlakazi</span></div>
+                </div>
+                <div class="gi" data-cap="Ambiente de desenvolvimento" data-src="./imgs/galeria/foto9.jpg"><img
+                        src="https://placehold.co/420x300/0d0d1a/6366f1?text=📸+Foto+9" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Ambiente de desenvolvimento</span></div>
+                </div>
+                <div class="gi" data-cap="Evento tech — Gaza Province" data-src="./imgs/galeria/foto10.jpg"><img
+                        src="https://placehold.co/460x300/0d0d1a/06b6d4?text=📸+Foto+10" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Evento tech — Gaza</span></div>
+                </div>
+                <div class="gi" data-cap="Análise de base de dados — Luping" data-src="./imgs/galeria/foto11.jpg"><img
+                        src="https://placehold.co/500x300/0d0d1a/3b82f6?text=📸+Foto+11" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Análise DB — Luping</span></div>
+                </div>
+                <div class="gi gi--w" data-cap="Design da interface HotelMazino" data-src="./imgs/galeria/foto12.jpg">
+                    <img src="https://placehold.co/680x300/0d0d1a/6366f1?text=📸+Foto+12" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Design UI — HotelMazino</span></div>
+                </div>
+                <div class="gi" data-cap="Teste do sistema de reservas" data-src="./imgs/galeria/foto13.jpg"><img
+                        src="https://placehold.co/430x300/0d0d1a/8b5cf6?text=📸+Foto+13" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Teste — Sistema Reservas</span></div>
+                </div>
+                <div class="gi" data-cap="Xai-Xai — cidade natal" data-src="./imgs/galeria/foto14.jpg"><img
+                        src="https://placehold.co/480x300/0d0d1a/06b6d4?text=📸+Foto+14" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Xai-Xai — cidade natal</span></div>
+                </div>
+                <!-- duplicados -->
+                <div class="gi gi--w" data-cap="Visita técnica" data-src="./imgs/galeria/foto8.jpg"><img
+                        src="https://placehold.co/640x300/0d0d1a/8b5cf6?text=📸+Foto+8" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Visita técnica</span></div>
+                </div>
+                <div class="gi" data-cap="Desenvolvimento" data-src="./imgs/galeria/foto9.jpg"><img
+                        src="https://placehold.co/420x300/0d0d1a/6366f1?text=📸+Foto+9" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Desenvolvimento</span></div>
+                </div>
+                <div class="gi" data-cap="Evento tech" data-src="./imgs/galeria/foto10.jpg"><img
+                        src="https://placehold.co/460x300/0d0d1a/06b6d4?text=📸+Foto+10" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Evento tech</span></div>
+                </div>
+                <div class="gi" data-cap="Análise DB" data-src="./imgs/galeria/foto11.jpg"><img
+                        src="https://placehold.co/500x300/0d0d1a/3b82f6?text=📸+Foto+11" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Análise DB</span></div>
+                </div>
+                <div class="gi gi--w" data-cap="Design UI" data-src="./imgs/galeria/foto12.jpg"><img
+                        src="https://placehold.co/680x300/0d0d1a/6366f1?text=📸+Foto+12" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Design UI</span></div>
+                </div>
+                <div class="gi" data-cap="Testes" data-src="./imgs/galeria/foto13.jpg"><img
+                        src="https://placehold.co/430x300/0d0d1a/8b5cf6?text=📸+Foto+13" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Testes</span></div>
+                </div>
+                <div class="gi" data-cap="Xai-Xai" data-src="./imgs/galeria/foto14.jpg"><img
+                        src="https://placehold.co/480x300/0d0d1a/06b6d4?text=📸+Foto+14" alt="">
+                    <div class="gio"><i class="fas fa-expand-alt"></i><span>Xai-Xai</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ghi"><i class="fas fa-hand-pointer me-2"></i>Clique numa foto para ver em detalhe · Passe o rato
+            para pausar</div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="glb" class="glb" role="dialog" aria-modal="true" aria-label="Visualizador de foto">
+        <button class="glb-cl" id="lbc" aria-label="Fechar"><i class="fas fa-times"></i></button>
+        <button class="glb-nv glb-pv" id="lbp" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+        <button class="glb-nv glb-nx" id="lbn" aria-label="Próxima"><i class="fas fa-chevron-right"></i></button>
+        <div class="glb-in">
+            <img id="lbi" src="" alt="">
+            <p id="lbcp" class="glb-cap"></p>
+        </div>
+        <div class="glb-bd" id="lbbd"></div>
+    </div>
+    <hr class="gdiv">
+
+
+    <!-- ================================================================
+     DEPOIMENTOS
+     ================================================================ -->
+    <section id="depoimentos" class="sp sa">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="s-tag">O que dizem</span>
+                <h2 class="s-ttl"><em>Depoimentos</em></h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="tc rv">
+                        <div class="mb-3" style="color:#fbbf24; font-size:.8rem; letter-spacing:2px">★★★★★</div>
+                        <p class="tct">"O Faquir resolveu o nosso problema com o banco de dados de forma rápida e
+                            profissional. O sistema ficou muito mais estável e rápido."</p>
+                        <div class="mt-4"><strong style="font-size:.9rem">Cliente Luping Supermercado</strong><span
+                                class="d-block t2c" style="font-size:.8rem">Xai-Xai, Gaza</span></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="tc rv">
+                        <div class="mb-3" style="color:#fbbf24; font-size:.8rem; letter-spacing:2px">★★★★★</div>
+                        <p class="tct">"O sistema do governo ficou incrível e muito fácil de usar. A equipa adaptou-se
+                            rapidamente à nova plataforma. Trabalho excepcional!"</p>
+                        <div class="mt-4"><strong style="font-size:.9rem">Administração Mandlakazi</strong><span
+                                class="d-block t2c" style="font-size:.8rem">Distrito de Mandlakazi, Gaza</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-8">
+                    <div class="tfc p-5">
+                        <h5 class="fw-bold mb-4 text-center" style="font-family:var(--fd)">Deixe o seu Depoimento</h5>
+                        <form id="fd" action="api/depoimento.php" method="POST">
+                            <div class="row g-3">
+                                <div class="col-md-6"><input type="text" name="nome" class="form-control ci"
+                                        placeholder="O seu nome" required></div>
+                                <div class="col-md-6"><input type="text" name="empresa" class="form-control ci"
+                                        placeholder="Empresa / Projecto"></div>
+                                <div class="col-12"><textarea name="mensagem" class="form-control ci" rows="4"
+                                        placeholder="A sua experiência..." required></textarea></div>
+                                <div class="col-12 text-center">
+                                    <div id="ds" class="alert d-none mb-3"></div><button type="submit"
+                                        class="btn btn-pc px-5 py-3"><i class="fas fa-paper-plane me-2"></i>Enviar
+                                        Depoimento</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr class="gdiv">
+
+
+    <!-- ================================================================
+     CONTACTO
+     ================================================================ -->
+    <section id="contato" class="sp">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="s-tag">Vamos Trabalhar</span>
+                <h2 class="s-ttl">Entre em <em>Contacto</em></h2>
+            </div>
+            <div class="row justify-content-center gy-5">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-4" style="font-family:var(--fd)">Informações de Contacto</h5>
+                    <div class="d-flex flex-column gap-3 mb-5">
+                        <div class="cii rv">
+                            <div class="cic"><i class="fas fa-envelope"></i></div>
+                            <div><small class="t2c d-block"
+                                    style="font-size:.7rem; letter-spacing:.1em; text-transform:uppercase">Email</small><a
+                                    href="mailto:faquirtembedev@gmail.com">faquirtembedev@gmail.com</a></div>
+                        </div>
+                        <div class="cii rv">
+                            <div class="cic"><i class="fas fa-phone"></i></div>
+                            <div><small class="t2c d-block"
+                                    style="font-size:.7rem; letter-spacing:.1em; text-transform:uppercase">Chamada
+                                    Directa</small><a href="tel:+258861400606">+258 861 400 606</a></div>
+                        </div>
+                        <div class="cii rv">
+                            <div class="cic"><i class="fab fa-whatsapp"></i></div>
+                            <div><small class="t2c d-block"
+                                    style="font-size:.7rem; letter-spacing:.1em; text-transform:uppercase">WhatsApp</small><a
+                                    href="https://wa.me/258861400606">+258 861 400 606</a></div>
+                        </div>
+                        <div class="cii rv">
+                            <div class="cic"><i class="fas fa-map-marker-alt"></i></div>
+                            <div><small class="t2c d-block"
+                                    style="font-size:.7rem; letter-spacing:.1em; text-transform:uppercase">Localização</small><span>Xai-Xai,
+                                    Gaza, Moçambique · Remoto</span></div>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-3">
+                        <a class="sca" href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="sca" href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a class="sca" href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a class="sca" href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div id="cs" class="alert d-none mb-4"></div>
+                    <form id="fc" action="api/contato.php" method="POST">
+                        <div class="row g-3">
+                            <div class="col-md-6"><label class="fl">Nome Completo *</label><input type="text"
+                                    name="nome" class="form-control ci" placeholder="O seu nome" required></div>
+                            <div class="col-md-6"><label class="fl">Email *</label><input type="email" name="email"
+                                    class="form-control ci" placeholder="email@exemplo.com" required></div>
+                            <div class="col-12"><label class="fl">Assunto</label><input type="text" name="assunto"
+                                    class="form-control ci" placeholder="Ex: Proposta de projecto web"></div>
+                            <div class="col-12"><label class="fl">Mensagem *</label><textarea name="mensagem"
+                                    class="form-control ci" rows="5" placeholder="Descreva o seu projecto..."
+                                    required></textarea></div>
+                            <div class="col-12"><button type="submit" id="benv" class="btn btn-pc w-100 py-3 fw-bold"><i
+                                        class="fas fa-paper-plane me-2"></i>Enviar Mensagem</button></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================================================================
+     FOOTER
+     ================================================================ -->
+    <footer class="fts pt-5 pb-4">
+        <div class="container">
+            <div class="row gy-4 mb-5">
+                <div class="col-md-4">
+                    <div class="fb mb-3">fDev</div>
+                    <p class="t2c small">Desenvolvedor Full-Stack baseado em Moçambique, criando soluções digitais
+                        eficientes e elegantes.</p>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="fw-bold text-uppercase mb-4 small" style="letter-spacing:.1em; color:var(--t2)">Links
+                        Rápidos</h6>
+                    <ul class="fl-links">
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#projetos">Projectos</a></li>
+                        <li><a href="./CcCV.pdf" download>Descarregar CV</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="fw-bold text-uppercase mb-4 small" style="letter-spacing:.1em; color:var(--t2)">Contacto
+                    </h6>
+                    <p class="t2c small mb-1">faquirtembedev@gmail.com</p>
+                    <p class="t2c small mb-3">+258 861 400 606</p>
+                    <div class="d-flex gap-3">
+                        <a class="sca" href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="sca" href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a class="sca" href="https://wa.me/258861400606" title="WhatsApp"><i
+                                class="fab fa-whatsapp"></i></a>
+                        <a class="sca" href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="fhr">
+            <p class="text-center t2c small mb-0">&copy; 2026 | fDev | Faquir Manuel Tembe · Todos os direitos
+                reservados.</p>
+        </div>
+    </footer>
+
+
+    <!-- Botão WhatsApp flutuante -->
+    <a href="https://wa.me/258861400606" class="waf" target="_blank" title="Fale no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Botão voltar ao topo -->
+    <button id="btt" class="btt" title="Voltar ao topo">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+
+    <!-- ================================================================
+     SCRIPTS — Bootstrap primeiro, depois o JS personalizado
+     ================================================================ -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="meuScript.js"></script>
+
+</body>
+
+</html>
