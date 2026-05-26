@@ -960,15 +960,74 @@ h6 {
 /* ================================================================
    8. SECÇÃO SOBRE — ESTATÍSTICAS E TECNOLOGIAS
    ================================================================ */
-.cp6 {
-    bottom: 28%;
-    right: 22%;
+.sg {
+    position: relative;
+    min-height: 520px;
+    padding: 2rem;
+    display: grid;
+    gap: 1.25rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 32px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(20px);
+    overflow: hidden;
 }
 
-.cp5 {
-    bottom: 28%;
-    left: 22%;
+.sb {
+    position: absolute;
+    width: calc(50% - 0.75rem);
+    padding: 1.8rem 1.6rem;
+    background: rgba(8, 8, 15, 0.86);
+    border: 1px solid rgba(99, 102, 241, 0.22);
+    border-radius: 28px;
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.22);
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+    backdrop-filter: blur(18px);
+}
 
+.sb:nth-child(1) {
+    top: 0;
+    left: 0;
+    transform: rotate(-1.5deg);
+}
+
+.sb:nth-child(2) {
+    top: 10rem;
+    right: 0;
+    transform: rotate(1deg);
+}
+
+.sb:nth-child(3) {
+    bottom: 10rem;
+    left: 0;
+    transform: rotate(0.8deg);
+}
+
+.sb:nth-child(4) {
+    bottom: 0;
+    right: 0;
+    transform: rotate(-1deg);
+}
+
+.sb {
+    animation: floaty 8s ease-in-out infinite alternate;
+}
+
+.sb:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.sb:nth-child(2) {
+    animation-delay: 0.16s;
+}
+
+.sb:nth-child(3) {
+    animation-delay: 0.32s;
+}
+
+.sb:nth-child(4) {
+    animation-delay: 0.48s;
 }
 
 .sb::before {
@@ -986,13 +1045,27 @@ h6 {
 
 .sb:hover {
     border-color: var(--bdg);
-    background: var(--surf2);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(99, 102, 241, 0.12);
+    background: rgba(13, 13, 26, 0.96);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 40px 90px rgba(99, 102, 241, 0.24);
 }
 
 .sb:hover::before {
     transform: scaleX(1);
+}
+
+@media (max-width: 991px) {
+    .sg {
+        min-height: auto;
+        padding: 1.25rem;
+    }
+
+    .sb {
+        position: static;
+        width: 100%;
+        transform: none !important;
+        animation: none;
+    }
 }
 
 .snum {
